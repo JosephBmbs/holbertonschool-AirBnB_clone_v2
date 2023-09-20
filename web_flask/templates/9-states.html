@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HBNB</title>
+</head>
+<body>
+    {% if id is none %}
+    <h1>States</h1>
+    <ul>
+        {% for state in all_states|sort(attribute='name') %}
+        <li>{{ state.id }}: <b>{{ state.name }}</b></li>
+        {% endfor %}
+    </ul>
+    {% elif state_found is none %}
+    <h1>Not found!</h1>
+    {% else %}
+    <h1>State: {{ state_found.name }}</h1>
+    <h3>Cities:</h3>
+    <ul>
+        {% for city in state_found.cities|sort(attribute='name') %}
+        <li>{{ city.id }}: <b>{{ city.name }}</b></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
